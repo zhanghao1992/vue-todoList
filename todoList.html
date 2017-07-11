@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src="../../js/jquery-3.1.0.js"></script>
+    <script type="text/javascript" src="../../js/vue.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+</head>
+<body>
+<div id="demo" class="demo">
+    <h4>添加任务：</h4>
+    <input class="add" type="text" placeholder="请添加任务" name="" v-on:keyup.enter="addHandle" v-model="addText">
+    <div class="filter clearfix" v-show="listData.length">
+        <span class="fl"></span>
+        <nav class="fr">
+            <a v-bind:class="{active: filter==0}" href="#all">所有任务</a>
+            <a v-bind:class="{active: filter==1}" href="#unCompleted">未完成任务
+                <sup>{{ noCompletedLength }}</sup></a>
+            <a v-bind:class="{active: filter==2}" href="#completed">已完成的任务</a>
+        </nav>
+    </div>
+    <h4>任务列表：</h4>
+    <ul class="list">
+        <li class="clearfix" v-for="item in filterList">
+            <input class="fl checkbox" type="checkbox" name="" v-on:change="changeHandle(item)"
+                   :checked="item.completed">
+            <p class="fl" v-bind:class="{completed:item.completed}" v-on:dblclick="dbclickHandle(item)">{{ item.title
+                }}</p>
+            <input
+                    v-focus="editing === item"
+                    :class="{hide:editing !== item}"
+                    v-on:keyup="fn(item)"
+                    type="text"
+                    v-model="item.title"
+                    @blur="blurHandle(item)"
+                    @keyup.enter="blurHandle(item)"
+                    @keyup.esc="escHandle(item)"
+
+            />
+            <a href="javascript:void(0);" class="delete fr" v-on:click="deleteHandle(item)"></a>
+        </li>
+    </ul>
+</div>
+
+<script type="text/javascript" src="app.js"></script>
+</body>
+</html>

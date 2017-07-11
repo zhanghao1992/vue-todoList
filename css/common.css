@@ -1,0 +1,99 @@
+/* 清除浮动 */
+.clearfix {
+    *zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+    display: table;
+    content: "";
+}
+.clearfix:after {
+    clear: both;
+}
+
+.fl {
+	float: left;
+}
+.fr {
+	float: right;
+}
+.hide {
+	display: none;
+}
+
+
+body {
+	font-family: "微软雅黑";
+	font-size: 14px;
+}
+
+
+a {
+	text-decoration: none;
+}
+
+
+.demo {
+	width: 600px;
+	margin: 100px auto;
+	background: #eee;
+}
+
+.demo h4 {
+	font-size: 16px;
+	line-height: 40px;
+	height: 40px;
+	font-weight: 400;
+}
+.add {
+	display: block;
+	outline: none;
+	line-height: 30px;
+	border: 1px solid #000;
+	border-radius: 4px;
+	width: 100%;
+	text-indent: 1em;
+}
+
+.filter {
+	padding: 5px 0;
+}
+.filter a {
+	color: #333;
+	padding: 0 5px;
+}
+.filter .active {
+	color: #f60;
+	font-weight: 700;
+}
+.list li {
+	height: 24px;
+}
+.list .checkbox {
+	vertical-align: middle;
+}
+.list p{
+	margin-left: 10px;
+	line-height: 24px;
+	vertical-align: middle;
+}
+.list .completed {
+	color: #888;
+	text-decoration: line-through;
+}
+
+.list .delete {
+	width: 24px;
+	height: 24px;
+	font-size: 24px;
+	line-height: 24px;
+	text-align: center;
+	color: #f60;
+	margin-right: 10px;
+}
+.list .delete:after {
+	content: "x";
+}
+.filter sup {
+	color: #f60;
+}
